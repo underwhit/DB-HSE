@@ -1,0 +1,55 @@
+{
+  "main_experiments": {
+    "Qwen2.5-7B-Instruct": {
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "paired_bootstrap_seed_start": 13,
+      "dbhse": {
+        "layer": 17,
+        "alpha": 10.0,
+        "tau_low": 0.6951562762260437,
+        "tau_high": 0.7884374856948853,
+        "prototype_size": 100
+      },
+      "actadd": {"layer": 14, "coefficient": 1.0},
+      "isp": {"layer": 17, "scale": 1.0, "calibration_size": 200}
+    },
+    "Qwen3-8B": {
+      "model_id": "Qwen/Qwen3-8B",
+      "paired_bootstrap_seed_start": 17,
+      "dbhse": {
+        "layer": 11,
+        "alpha": 4.0,
+        "tau_low": 0.6367968320846558,
+        "tau_high": 0.8122265338897705,
+        "prototype_size": 100
+      },
+      "actadd": {"layer": 13, "coefficient": 1.0},
+      "isp": {"layer": 3, "scale": 1.0, "calibration_size": 200}
+    },
+    "Llama3.1-8B-Instruct": {
+      "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "paired_bootstrap_seed_start": 21,
+      "dbhse": {
+        "layer": 12,
+        "alpha": 4.0,
+        "tau_low": 0.5946874618530273,
+        "tau_high": 0.7492578029632568,
+        "prototype_size": 100
+      },
+      "actadd": {"layer": 18, "coefficient": 1.0},
+      "isp": {"layer": 8, "scale": 1.0, "calibration_size": 200}
+    }
+  },
+  "qwen3_14b_configuration_study": {
+    "model_id": "Qwen/Qwen3-14B",
+    "actadd": {"searched_layers": [12, 16, 20], "selected_layer": 16, "coefficient": 1.0},
+    "isp": {"searched_layers": [4, 8, 12, 16, 20], "selected_layer": 4, "scale": 1.0},
+    "dbhse_direct": {
+      "searched_layers": [16, 20, 24],
+      "searched_scales_at_selected_layer": [2, 4, 6, 8, 10],
+      "selected_layer": 16,
+      "selected_alpha": 8.0,
+      "gate": 1.0
+    }
+  }
+}
